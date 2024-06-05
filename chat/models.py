@@ -1,6 +1,4 @@
-# messaging/models.py
-
-from django.db import models
+from djongo import models
 from django_celery_beat.models import IntervalSchedule
 from accounts.models import User
 
