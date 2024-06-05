@@ -108,7 +108,7 @@ class RecurrentMessageViewSet(ModelViewSet):
 
         schedule, created = IntervalSchedule.objects.get_or_create(every=every, period=period)
         PeriodicTask.objects.create(
-            interval=schedule, name='test task', task='chat.tasks.recurrent_messge', args=f"[{recurrent_message.id}]"
+            interval=schedule, name='test task', task='chat.tasks.recurrent_messge_task', args=f"[{recurrent_message.id}]"
         )
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
