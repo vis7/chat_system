@@ -96,11 +96,19 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'chat_system_db'
     },
+    'accounts': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
 }
+
+DATABASE_ROUTERS = ['chat_system.db_router.ChatRouter']
+DATABASE_APPS_MAPPING = {'chat': 'chat',
+                         'accounts':'accounts'}
 
 
 # Password validation

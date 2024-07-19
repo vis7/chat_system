@@ -88,3 +88,11 @@ Note that if you have not bought Number from twilio and set it into .env. You ca
    - Login admin - using credential you just created above using createsuperuser command
    - Go to "Users" -> "Respective Phone Number" whome you want to login -> find otp and use it in postman collection to verify and login
 
+# Installation Details
+Used below versions of pypi for this project 
+```
+pymongo==3.12.1
+Django==3.2.16
+djongo==1.3.6
+sqlparse==0.2.4
+```
