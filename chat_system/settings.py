@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_celery_beat',
-    'channels',
     "phonenumber_field",
     'django_extensions',
 
@@ -93,11 +92,23 @@ WSGI_APPLICATION = 'chat_system.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    'chat': {
+        'ENGINE': 'djongo',
+        'NAME': 'chat_system_db'
+    },
+    'accounts': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
 }
+
+DATABASE_ROUTERS = ['chat_system.db_router.ChatRouter']
+DATABASE_APPS_MAPPING = {'chat': 'chat',
+                         'accounts':'accounts'}
 
 
 # Password validation
@@ -169,8 +180,8 @@ CHANNEL_LAYERS = {
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', "http://127.0.0.1:6379"]
 
 # celery
-CELERY_BROKER_URL = 'redis://redis:6379/0'
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379/0' # change 'localhost' to 'redis' for running project with docker
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0' # change 'localhost' to 'redis' for running project with docker
 CELERY_TIMEZONE = 'Asia/Kolkata'
 
 CELERY_IMPORTS = [

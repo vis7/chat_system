@@ -64,6 +64,7 @@ pip install -r requirements.txt
 Run Django App
 ```commandline
 python manage.py makemigrations
+python manage.py migrate --database=chat chat
 python manage.py migrate
 
 
@@ -87,4 +88,13 @@ Note that if you have not bought Number from twilio and set it into .env. You ca
     
    - Login admin - using credential you just created above using createsuperuser command
    - Go to "Users" -> "Respective Phone Number" whome you want to login -> find otp and use it in postman collection to verify and login
+
+# Installation Details
+Used below versions of pypi for this project. Using Djongo require us to use `sqlparse==0.2.4` but latest version of django require `sqlparse>=0.3.1`
+```
+pymongo==3.12.1
+Django==3.2.16
+djongo==1.3.6
+sqlparse==0.2.4
+```
 
