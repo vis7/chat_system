@@ -96,5 +96,6 @@ pymongo==3.12.1
 Django==3.2.16
 djongo==1.3.6
 sqlparse==0.2.4
+djangorestframework==3.15.1
 ```
 
